@@ -31,13 +31,15 @@ def get_user_attack():
         'mid': get_mid_attack,
         'hard': get_hard_attack,
     }
+    sum_attack = 0
 
     for i in range(5):
         input_attack = input('Введи тип атаки: ').lower()
         attack_value = attacks_types[input_attack]()
-        print(f'Количество очков твоей атаки: {attack_value}.')
+        sum_attack += attack_value
+        print(f'Количество очков твоей атаки: {sum_attack}.')
         total += 1
-    return total
+    return sum_attack
 
 
 def run_game():
@@ -50,6 +52,8 @@ def run_game():
     else:
         print('В этот раз не повезло :( Бой проигран.')
     yes_no = {
+        'y': True,
+        'n': False,
         'Y': True,
         'N': False,
     }
